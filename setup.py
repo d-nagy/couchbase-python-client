@@ -111,7 +111,8 @@ class CMakeBuildExt(build_ext):
                                 '--config',
                                 f'{build_type}',
                                 '--parallel',
-                                f'{num_threads}']
+                                f'{num_threads}',
+                                '--trace-expand']
 
             if not os.path.exists(self.build_temp):
                 os.makedirs(self.build_temp)
