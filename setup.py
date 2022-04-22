@@ -76,6 +76,7 @@ class CMakeBuildExt(build_ext):
             cmake_arch = env.pop('PYCBC_CMAKE_SET_ARCH', None)
 
             cmake_config_args = [CMAKE_EXE,
+                                 '--trace-expand',
                                  ext.sourcedir,
                                  f'-DCMAKE_BUILD_TYPE={build_type}',
                                  f'-DCMAKE_LIBRARY_OUTPUT_DIRECTORY={output_dir}',
@@ -111,8 +112,7 @@ class CMakeBuildExt(build_ext):
                                 '--config',
                                 f'{build_type}',
                                 '--parallel',
-                                f'{num_threads}',
-                                '--trace-expand']
+                                f'{num_threads}']
 
             if not os.path.exists(self.build_temp):
                 os.makedirs(self.build_temp)
